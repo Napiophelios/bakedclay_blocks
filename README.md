@@ -5,4 +5,4 @@ depends:
 - dye?
 - stairs?
 
-![Preview](https://github.com/Napiohelios/bakedclay_blocks/blob/master/screenshot.png)
+![Preview](https://github.com/Napiophelios/bakedclay_blocks/blob/master/screenshot.png)
