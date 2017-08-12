@@ -4,7 +4,7 @@ Simple mod that adds some visual detail to bakedclay nodes.
 
 ## depends:
 - default
-[bakedclay] (https://forum.minetest.net/viewtopic.php?t=8890)
+- bakedclay
 - dye?
 - stairs?
 
