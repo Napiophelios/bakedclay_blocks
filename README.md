@@ -1,4 +1,7 @@
 # bakedclay_blocks
+
+Simple mod that adds some visual detail to bakedclay nodes.
+
 depends:
 - default
 - bakedclay
