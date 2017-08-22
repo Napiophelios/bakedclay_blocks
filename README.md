@@ -1,6 +1,6 @@
 # bakedclay_blocks
 
-Simple mod that adds some visual detail to bakedclay nodes.
+Adds baked clay variants of blocks, bricks, and stacked block slabs.
 
 ## depends:
 - default
