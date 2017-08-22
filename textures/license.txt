@@ -1,6 +1,7 @@
 
 bakedclay_block.png
 bakedclay_block_slab.png
+bakedclay_brick.png
 
 
 Author of textures: Napiophelios

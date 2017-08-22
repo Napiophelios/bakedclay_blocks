@@ -26,24 +26,25 @@ for _, clay in pairs(clay) do
 	minetest.register_node("bakedclay_blocks:" .. clay[1] .. "block", {
 		description = clay[2] .. " Baked Clay Block",
 		tiles = {"baked_clay_" .. clay[1] ..".png^bakedclay_block.png"},
+		is_ground_content = false,
 		groups = {cracky = 3, oddly_breakable_by_hand = 2},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
 	minetest.register_craft({
-		output = "bakedclay_blocks:" .. clay[1] .. "block 4",
+		output = "bakedclay_blocks:" .. clay[1] .. "block 9",
 		recipe = {
-			{"bakedclay:" .. clay[1], "", "bakedclay:" .. clay[1]},
-			{"","", ""},
-			{"bakedclay:" .. clay[1], "", "bakedclay:" .. clay[1]},
+			{"bakedclay:" .. clay[1],"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
+			{"bakedclay:" .. clay[1],"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
+			{"bakedclay:" .. clay[1],"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
 		},
 	})
 
 --reverse recipe
 	minetest.register_craft({
-		output = "bakedclay:" .. clay[1] .. " 4",
+		output = "bakedclay:" .. clay[1] .. " 9",
 		recipe = {
-			{"bakedclay_blocks:" .. clay[1] .. "block"},
+			{"bakedclay_blocks:" .. clay[1] .. "block",}
 		},
 	})
 
@@ -53,8 +54,10 @@ for _, clay in pairs(clay) do
 		tiles = {
 		"baked_clay_" .. clay[1] ..".png^bakedclay_block.png",
 		"baked_clay_" .. clay[1] ..".png^bakedclay_block.png",
-		"baked_clay_" .. clay[1] ..".png^bakedclay_block_slab.png",
-		},
+		"baked_clay_" .. clay[1] ..".png^bakedclay_block_slab.png"},
+		paramtype2 = "facedir",
+		place_param2 = 0,
+		is_ground_content = false,
 		groups = {cracky = 3, oddly_breakable_by_hand = 2},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -76,7 +79,28 @@ for _, clay in pairs(clay) do
 		},
 	})
 
--- register stairs if found
+--baked clay bricks
+	minetest.register_node("bakedclay_blocks:" .. clay[1] .. "brick", {
+		description = clay[2] .. " Baked Clay Brick",
+		tiles = {"baked_clay_" .. clay[1] ..".png^bakedclay_block.png", 
+		"baked_clay_" .. clay[1] ..".png^bakedclay_brick.png"},
+		paramtype2 = "facedir",
+		place_param2 = 0,
+		is_ground_content = false,
+		groups = {cracky = 3, oddly_breakable_by_hand = 2},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_craft({
+		output = "bakedclay_blocks:" .. clay[1] .. "brick 4",
+		recipe = {
+			{"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
+			{"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
+		},
+	})
+
+
+-- register stairs
 	if minetest.global_exists("stairs") then
 
 		stairs.register_stair_and_slab("bakedclay_blocks_".. clay[1] .. "block", "bakedclay_blocks:".. clay[1] .."block",
@@ -85,6 +109,13 @@ for _, clay in pairs(clay) do
 		clay[2] .. " Baked Clay Block Stair",
 		clay[2] .. " Baked Clay Block Slab",
 		default.node_sound_stone_defaults())
-	end
 
+
+		stairs.register_stair_and_slab("bakedclay_blocks_".. clay[1] .. "brick", "bakedclay_blocks:".. clay[1] .."brick",
+		{cracky = 3, oddly_breakable_by_hand = 2},
+		{"baked_clay_" .. clay[1] ..".png^bakedclay_brick.png"},
+		clay[2] .. " Baked Clay Brick Stair",
+		clay[2] .. " Baked Clay Brick Slab",
+		default.node_sound_stone_defaults())
+	end
 end
