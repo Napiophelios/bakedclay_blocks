@@ -32,7 +32,7 @@ for _, clay in pairs(clay) do
 	})
 
 	minetest.register_craft({
-		output = "bakedclay_blocks:" .. clay[1] .. "block 9",
+		output = "bakedclay_blocks:" .. clay[1] .. "block",
 		recipe = {
 			{"bakedclay:" .. clay[1],"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
 			{"bakedclay:" .. clay[1],"bakedclay:" .. clay[1], "bakedclay:" .. clay[1]},
